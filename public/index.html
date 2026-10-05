@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Content Summarizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="header">
+            <h1>AI Content Summarizer 📝</h1>
+            <p>Upload a PDF, an Image, or paste text below to get an instant, well-formatted summary.</p>
+        </div>
+        
+        <div class="split-container">
+            <!-- Left Side: User Input Box -->
+            <div class="input-panel">
+                <div class="upload-box">
+                    <label for="mediaUpload">📄 Upload PDF or 🖼️ Photo:</label>
+                    <input type="file" id="mediaUpload" accept="application/pdf, image/png, image/jpeg, image/jpg">
+                </div>
+                
+                <p class="or-divider">--- OR ---</p>
+                
+                <textarea id="inputText" placeholder="Paste your long text here..."></textarea>
+                
+                <button id="submitBtn">Summarize Now</button>
+            </div>
+
+            <!-- Right Side: AI Output Box -->
+            <div class="output-panel">
+                <div id="placeholderText">
+                    <p>🤖 Your AI summary will appear here...</p>
+                </div>
+
+                <div id="loading" class="hidden">
+                    <div class="spinner"></div>
+                    <p>AI is reading and thinking...</p>
+                </div>
+
+                <div id="resultArea" class="hidden">
+                    <h3 class="result-title">Summary</h3>
+                    <!-- Yahan marked.js magic karega -->
+                    <div id="summaryText"></div> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Markdown (Headings/Bullets) ko beautiful banane ka tool -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+/* --- Advance Premium UI (1/3 Input, 2/3 Output Ratio) --- */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.main-wrapper {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 98%; /* Screen ka 98% space cover karega */
+    max-width: 1400px; /* Khali space bharne ke liye size bada kar diya */
+}
+
+.header { text-align: center; margin-bottom: 25px; }
+.header h1 { color: #2c3e50; margin: 0 0 10px 0; font-size: 32px; }
+.header p { color: #7f8c8d; margin: 0; font-size: 16px; }
+
+.split-container {
+    display: flex;
+    gap: 30px;
+    align-items: stretch; /* Dono panel ki height equal rakhega */
+}
+
+/* 1/3 Hissa (33%) - Input Ke Liye */
+.input-panel {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2/3 Hissa (66%) - Output Ke Liye */
+.output-panel {
+    flex: 2; 
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 5px solid #3498db;
+    overflow-y: auto; 
+    max-height: 75vh; /* Output panel lamba rahega (Screen ka 75%) */
+}
+
+/* Input Panel Styling */
+.upload-box {
+    padding: 15px;
+    background: #f8fbfa;
+    border-radius: 8px;
+    border: 2px dashed #bdc3c7;
+}
+.upload-box label { font-weight: bold; color: #34495e; display: block; margin-bottom: 8px; }
+
+.or-divider { text-align: center; font-weight: bold; margin: 15px 0; color: #95a5a6; }
+
+textarea {
+    width: 100%;
+    flex-grow: 1; 
+    min-height: 300px; /* Text area ki height badha di */
+    padding: 15px;
+    border: 1px solid #dcdde1;
+    border-radius: 8px;
+    font-size: 15px;
+    resize: none; 
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+button:hover { background-color: #2ecc71; box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3); }
+button:disabled { background-color: #95a5a6; cursor: not-allowed; box-shadow: none; }
+
+/* Output Panel Elements */
+#placeholderText {
+    text-align: center;
+    color: #95a5a6;
+    margin-top: 15%;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.hidden { display: none !important; }
+
+#loading { text-align: center; margin-top: 15%; color: #3498db; font-weight: bold; font-size: 18px;}
+.spinner {
+    border: 4px solid #e0e0e0;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 50px; height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.result-title { margin-top: 0; color: #2c3e50; font-size: 24px; border-bottom: 2px solid #3498db; padding-bottom: 10px; margin-bottom: 20px; }
+.error-text { color: #e74c3c; font-weight: bold; font-size: 16px; }
+
+/* --- Markdown HTML Formatting (ChatGPT Style Output) --- */
+#summaryText {
+    text-align: left;
+    line-height: 1.8;
+    color: #2c3e50;
+    font-size: 16px;
+}
+
+#summaryText h1, #summaryText h2, #summaryText h3, #summaryText h4 {
+    color: #1a252f;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+#summaryText h3 { font-size: 20px; }
+#summaryText h2 { font-size: 22px; border-bottom: 1px solid #dcdde1; padding-bottom: 8px;}
+
+#summaryText p { margin-bottom: 18px; }
+
+#summaryText ul, #summaryText ol {
+    padding-left: 20px;
+    margin-bottom: 20px;
+    background: white;
+    padding: 20px 20px 20px 40px;
+    border-radius: 8px;
+    border: 1px solid #e1e8ed;
+}
+
+#summaryText li { margin-bottom: 12px; }
+#summaryText strong { color: #000; font-weight: bold; }
+
+/* Mobile screen ke liye (choti screen par wapas upar-niche ho jayega) */
+@media (max-width: 900px) {
+    .split-container { flex-direction: column; }
+    .input-panel { flex: none; }
+    .output-panel { flex: none; min-height: 400px; margin-top: 20px;}
+    textarea { min-height: 200px; }
+}
