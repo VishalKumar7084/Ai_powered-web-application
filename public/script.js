@@ -30,7 +30,7 @@ document.getElementById('submitBtn').addEventListener('click', async () => {
             formData.append('text', inputText);
         }
 
-        const response = await fetch('http://localhost:3000/api/summarize', {
+        const response = await fetch('/api/summarize', {
             method: 'POST',
             body: formData 
         });
