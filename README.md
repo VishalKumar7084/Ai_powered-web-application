@@ -16,7 +16,10 @@ This project is part of my Web Development Internship Task 3. It is a full-stack
 
 ## ⚙️ How to Run Locally
 
-1. **Clone the repository:**
-   ```bash
-   git clone <your-github-repo-url>
-   cd ai_summarizer_app
+1. ## Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/VishalKumar7084/Ai_powered-web-application.git
+cd Ai_powered-web-application
